@@ -17,11 +17,68 @@
                 <div class="nav-logo">
                     <a href="#"><img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo"></a>
                 </div>
-                <div class="nav-location">
+                <div class="nav-location" id="delivery-location">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <span>Deliver to</span>
                         <strong>Select your address</strong>
+                    </div>
+                </div>
+
+                <!-- Address Modal -->
+                <div class="modal" id="address-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Choose your location</h2>
+                            <button class="modal-close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Select a delivery location to see product availability and delivery options</p>
+                            
+                            <div class="sign-in-prompt">
+                                <button class="sign-in-button">Sign in to see your addresses</button>
+                            </div>
+
+                            <div class="location-separator">
+                                <span>or enter a US zip code</span>
+                            </div>
+
+                            <div class="zip-code-form">
+                                <input type="text" id="zip-code" placeholder="Enter US zip code" maxlength="5" pattern="[0-9]*">
+                                <button class="apply-button">Apply</button>
+                            </div>
+
+                            <div class="location-separator">
+                                <span>or</span>
+                            </div>
+
+                            <div class="current-location">
+                                <button class="location-button">
+                                    <i class="fas fa-location-arrow"></i>
+                                    Use my current location
+                                </button>
+                            </div>
+
+                            <div class="delivery-options">
+                                <h3>Delivery options and delivery speeds may vary for different locations</h3>
+                                <div class="shipping-list">
+                                    <div class="shipping-option">
+                                        <i class="fas fa-truck"></i>
+                                        <div class="option-details">
+                                            <strong>FREE Prime Delivery</strong>
+                                            <span>Free 2-day delivery on qualified items</span>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <i class="fas fa-box"></i>
+                                        <div class="option-details">
+                                            <strong>FREE Shipping</strong>
+                                            <span>On orders over $25</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,10 +101,76 @@
                 <div class="nav-language">
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" alt="US Flag">
                     <span>EN</span>
+                    <i class="fas fa-caret-down"></i>
+                    <!-- Language Dropdown -->
+                    <div class="dropdown-menu language-dropdown">
+                        <div class="dropdown-header">
+                            <span>Change language</span>
+                            <a href="#">Learn more</a>
+                        </div>
+                        <div class="language-options">
+                            <label class="radio-option">
+                                <input type="radio" name="language" value="en" checked>
+                                <span>English - EN</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="language" value="es">
+                                <span>español - ES</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="language" value="zh">
+                                <span>简体中文 - ZH</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="language" value="de">
+                                <span>Deutsch - DE</span>
+                            </label>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="currency-selector">
+                            <span>Change currency</span>
+                            <select>
+                                <option value="USD">$ - USD - US Dollar</option>
+                                <option value="EUR">€ - EUR - Euro</option>
+                                <option value="GBP">£ - GBP - British Pound</option>
+                                <option value="JPY">¥ - JPY - Japanese Yen</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="nav-signin">
                     <span>Hello, sign in</span>
                     <strong>Account & Lists <i class="fas fa-caret-down"></i></strong>
+                    <!-- Account Dropdown -->
+                    <div class="dropdown-menu account-dropdown">
+                        <div class="dropdown-header">
+                            <button class="sign-in-button">Sign in</button>
+                            <div class="new-customer">
+                                New customer? <a href="#">Start here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-columns">
+                            <div class="dropdown-column">
+                                <h4>Your Lists</h4>
+                                <a href="#">Create a List</a>
+                                <a href="#">Find a List or Registry</a>
+                                <a href="#">AmazonSmile Charity Lists</a>
+                            </div>
+                            <div class="dropdown-column">
+                                <h4>Your Account</h4>
+                                <a href="#">Account</a>
+                                <a href="#">Orders</a>
+                                <a href="#">Recommendations</a>
+                                <a href="#">Browsing History</a>
+                                <a href="#">Watchlist</a>
+                                <a href="#">Video Purchases</a>
+                                <a href="#">Kindle Unlimited</a>
+                                <a href="#">Content & Devices</a>
+                                <a href="#">Subscribe & Save</a>
+                                <a href="#">Memberships</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="nav-orders">
                     <span>Returns</span>
@@ -57,6 +180,27 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                     <strong>Cart</strong>
+                    <!-- Cart Dropdown -->
+                    <div class="dropdown-menu cart-dropdown">
+                        <div class="cart-content">
+                            <div class="empty-cart">
+                                <div class="cart-icon">
+                                    <i class="fas fa-shopping-cart fa-3x"></i>
+                                </div>
+                                <h3>Your Amazon Cart is empty</h3>
+                                <div class="cart-suggestions">
+                                    <a href="#">Shop today's deals</a>
+                                    <div class="customer-options">
+                                        <button class="sign-in-button">Sign in to your account</button>
+                                        <button class="signup-button">Sign up now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-items" style="display: none;">
+                                <!-- Cart items will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,12 +222,154 @@
         </div>
     </header>
 
+    <!-- Side Navigation Menu -->
+    <div class="side-nav-overlay"></div>
+    <div class="side-nav">
+        <div class="side-nav-header">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Hello, Sign in</span>
+            </div>
+            <button class="side-nav-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="side-nav-content">
+            <div class="side-nav-section">
+                <h2>Digital Content & Devices</h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Amazon Music
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Kindle E-readers & Books
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Amazon Appstore
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-nav-section">
+                <h2>Shop By Department</h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Electronics
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Computers
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Smart Home
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Arts & Crafts
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-nav-section">
+                <h2>Programs & Features</h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Gift Cards
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Amazon Live
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            International Shopping
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-nav-section">
+                <h2>Help & Settings</h2>
+                <ul>
+                    <li><a href="#">Your Account</a></li>
+                    <li>
+                        <a href="#">
+                            English
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            United States
+                            <i class="fas fa-flag"></i>
+                        </a>
+                    </li>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main>
         <!-- Hero Banner -->
         <section class="hero">
             <div class="hero-carousel">
-                <img src="https://picsum.photos/1200/300" alt="Hero Banner">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/1200/300?1" alt="Hero Banner 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/1200/300?2" alt="Hero Banner 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/1200/300?3" alt="Hero Banner 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://picsum.photos/1200/300?4" alt="Hero Banner 4">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-nav">
+                        <button class="carousel-indicator active"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                    </div>
+                </div>
                 <div class="carousel-gradient"></div>
             </div>
         </section>
@@ -108,9 +394,132 @@
                 </div>
             </section>
 
-            <!-- Product Grid -->
+            <!-- Product Section with Filters -->
             <section class="products">
-                <div class="product-grid">
+                <div class="product-filters">
+                    <div class="filter-section">
+                        <h3>Department</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="electronics"> Electronics
+                                    <span class="count">(42)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="computers"> Computers
+                                    <span class="count">(28)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="smart-home"> Smart Home
+                                    <span class="count">(15)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="arts-crafts"> Arts & Crafts
+                                    <span class="count">(24)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Customer Review</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <a href="#" class="star-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & Up
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="star-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & Up
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="star-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & Up
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Price</h3>
+                        <ul class="filter-list">
+                            <li><a href="#">Under $25</a></li>
+                            <li><a href="#">$25 to $50</a></li>
+                            <li><a href="#">$50 to $100</a></li>
+                            <li><a href="#">$100 to $200</a></li>
+                            <li><a href="#">$200 & Above</a></li>
+                        </ul>
+                        <div class="price-range">
+                            <input type="number" placeholder="$ Min" min="0">
+                            <input type="number" placeholder="$ Max" min="0">
+                            <button class="go-button">Go</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Condition</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="new"> New
+                                    <span class="count">(156)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="used"> Used
+                                    <span class="count">(34)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="renewed"> Renewed
+                                    <span class="count">(12)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-content">
+                    <div class="product-controls">
+                        <div class="results-count">1-16 of over 2,000 results</div>
+                        <div class="sort-controls">
+                            <label for="sort-select">Sort by:</label>
+                            <select id="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Avg. Customer Review</option>
+                                <option value="newest">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-grid">
                     <!-- Product Card 1 -->
                     <div class="product-card">
                         <div class="product-image">
@@ -246,8 +655,107 @@
                     <h2>Related to items you've viewed</h2>
                     <a href="#" class="see-more">See more</a>
                 </div>
-                <div class="recommendation-grid">
-                    <!-- Recommendation items will be similar to product cards but smaller -->
+                <div class="recommendations-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <!-- Recommendation Card 1 -->
+                            <div class="recommendation-card">
+                                <img src="https://picsum.photos/150/150?5" alt="Recommendation 1">
+                                <div class="recommendation-info">
+                                    <a href="#" class="product-title">Wireless Gaming Mouse with RGB Lighting</a>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="rating-count">1,234</span>
+                                    </div>
+                                    <div class="price-block">
+                                        <span class="price-symbol">$</span>
+                                        <span class="price-whole">29</span>
+                                        <span class="price-decimal">99</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendation Card 2 -->
+                            <div class="recommendation-card">
+                                <img src="https://picsum.photos/150/150?6" alt="Recommendation 2">
+                                <div class="recommendation-info">
+                                    <a href="#" class="product-title">4K Webcam with Microphone</a>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-count">856</span>
+                                    </div>
+                                    <div class="price-block">
+                                        <span class="price-symbol">$</span>
+                                        <span class="price-whole">49</span>
+                                        <span class="price-decimal">99</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- More Recommendation Cards -->
+                            <div class="recommendation-card">
+                                <img src="https://picsum.photos/150/150?7" alt="Recommendation 3">
+                                <div class="recommendation-info">
+                                    <a href="#" class="product-title">Mechanical Gaming Keyboard</a>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="rating-count">2,467</span>
+                                    </div>
+                                    <div class="price-block">
+                                        <span class="price-symbol">$</span>
+                                        <span class="price-whole">79</span>
+                                        <span class="price-decimal">99</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="recommendation-card">
+                                <img src="https://picsum.photos/150/150?8" alt="Recommendation 4">
+                                <div class="recommendation-info">
+                                    <a href="#" class="product-title">USB-C Hub Multiport Adapter</a>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="rating-count">3,891</span>
+                                    </div>
+                                    <div class="price-block">
+                                        <span class="price-symbol">$</span>
+                                        <span class="price-whole">39</span>
+                                        <span class="price-decimal">99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-button prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-button next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
